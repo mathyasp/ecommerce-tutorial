@@ -5,8 +5,6 @@ const itemList = document.getElementById('item-list');
 const cartQty = document.getElementById('cart-qty');
 const cartTotal = document.getElementById('cart-total');
 
-itemList.innerHTML = '<li> Hello World</li>';
-
 // the length of our data determines how many times this loop goes around
 for (let i = 0; i < data.length; i += 1) {
 
@@ -57,6 +55,14 @@ for (let i = 0; i < data.length; i += 1) {
 	button.innerHTML = 'Add to Cart';
 	newDiv.appendChild(button);
 };
+
+// Connect Add to Cart Button with Cart
+const all_items_button = Array.from(document.querySelectorAll("button"));
+
+all_items_button.forEach(elt => elt.addEventListener('click', () => {
+	addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+	showItems()
+  }));
 
 // Initialize the shopping cart
 const cart = [];
