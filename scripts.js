@@ -52,3 +52,17 @@ for (let i = 0; i < data.length; i += 1) {
 	button.innerHTML = 'Add to Cart';
 	newDiv.appendChild(button);
 };
+
+// Initialize the shopping cart
+const cart = [];
+
+// Function to add an item to the shopping cart
+function addItem(name, price) {
+	const item = {name: name, price: price, qty: 1};
+	cart.push(item);
+};
+
+// Function to show items in the shopping cart
+function showItems() {
+	console.log(`You have ${cart.length} items in your cart`);
+};
