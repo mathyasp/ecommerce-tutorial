@@ -72,6 +72,7 @@ function addItem(name, price) {
 	for (let i = 0; i < cart.length; i += 1) {
 		if (cart[i].name === name) {
 			cart[i].qty += 1;
+			showItems();
 			return;
 		}
 	};
@@ -143,7 +144,7 @@ function updateCart(name, qty) {
 			if (qty < 1) {
 				removeItem(name);
 				return;
-			}
+			}; 
 			cart[i].qty = qty;
 			showItems();
 			return;
@@ -162,7 +163,7 @@ itemList.onclick = function(e) {
 	} else if (e.target && e.target.classList.contains('remove-one')) {
 		const name = e.target.dataset.name;
 		removeItem(name, 1);
-	}
+	};
 };
 
 // Handle change events on update input
